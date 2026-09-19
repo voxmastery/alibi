@@ -1,0 +1,25 @@
+{
+  "name": "@alibi/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@alibi/contracts": "workspace:*",
+    "@alibi/core": "workspace:*",
+    "@fontsource/jetbrains-mono": "^5.0.0",
+    "@fontsource/source-sans-3": "^5.0.0",
+    "@fontsource/source-serif-4": "^5.0.0",
+    "d3-force": "^3.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/d3-force": "^3.0.0",
+    "vite": "^8.0.0"
+  }
+}

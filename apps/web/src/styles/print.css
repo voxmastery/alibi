@@ -1,0 +1,1 @@
+@media print { .topbar, .nav, .banner, #stage, .btn { display: none !important; } body { background: #fff; } }
