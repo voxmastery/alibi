@@ -1,1 +1,60 @@
 /* Screen tasks (8-11) append their own rules here. Intentionally empty in the shell. */
+
+/* defence */
+.defence-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.field-label { color: var(--muted); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.input-date { width: auto; padding: 8px 12px; font: 0.95rem var(--sans); letter-spacing: normal; text-transform: none; }
+.defence-vendor h2 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.statement { border-left: 3px solid var(--accent); }
+.statement p { font-family: var(--serif); font-size: 1.05rem; max-width: var(--measure); }
+.statement p:last-child { margin-bottom: 0; }
+.notice { font-weight: 600; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--radius); padding: 12px 16px; margin: 0 0 20px; max-width: none; }
+.chain-box.chain-ok { border-left: 3px solid var(--clear); }
+.chain-box.chain-fail { border-left: 3px solid var(--flagged); }
+.chain-pack { font-size: 0.95rem; margin-bottom: 0.5em; }
+.chain-pack-ok { color: var(--clear); }
+.chain-pack-fail { color: var(--flagged); font-weight: 600; }
+.defence-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+.defence-frame { width: 100%; height: 900px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+/* end defence */
+
+/* verify */
+.chain-json { width: 100%; min-height: 240px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; font: 0.85rem/1.5 var(--mono); resize: vertical; }
+.chain-json:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+.verify-form .field-label { display: block; margin-bottom: 8px; }
+.verify-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin: 16px 0; }
+.file-label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.9rem; }
+.verify-note { color: var(--muted); font-size: 0.9rem; }
+.verify-results { margin-top: 28px; }
+.verdict-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.verdict-box { border: 1px solid var(--line); border-left-width: 3px; border-radius: var(--radius); background: var(--paper-2); padding: 16px 18px; }
+.verdict-box h3 { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.verdict-ok { border-left-color: var(--clear); }
+.verdict-fail { border-left-color: var(--flagged); }
+.verdict-pending { border-left-color: var(--line); }
+.verdict-line { font-size: 1.05rem; margin-bottom: 0.4em; }
+.verdict-ok-line { color: var(--clear); font-weight: 600; }
+.verdict-fail-line { color: var(--flagged); font-weight: 700; }
+.verdict-pending-line { color: var(--muted); }
+.verdict-note { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.disagree { margin-bottom: 16px; font-weight: 600; }
+.tick { color: var(--clear); font-weight: 700; }
+.cross { color: var(--flagged); font-weight: 700; }
+/* end verify */
+
+/* alerts */
+.health .health-state { font-size: 1.05rem; }
+.health .ok { color: var(--clear); font-weight: 600; }
+.health .fail { color: var(--flagged); font-weight: 700; }
+.health-stale { border-left: 3px solid var(--flagged); }
+.health-note { margin-bottom: 0; }
+.alerts { list-style: none; margin: 0; padding: 0; }
+.alert { padding: 16px 0; border-top: 1px solid var(--line); }
+.alert:first-child { border-top: none; padding-top: 0; }
+.alert-head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 6px; }
+.alert-kind { font-weight: 600; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.alert-date { color: var(--muted); font-size: 0.85rem; }
+.alert-sentence { font-family: var(--serif); font-size: 1.05rem; margin-bottom: 6px; }
+.alert-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; font-size: 0.9rem; margin-bottom: 0; }
+.itc-at-risk { color: var(--flagged); font-weight: 600; }
+/* end alerts */
