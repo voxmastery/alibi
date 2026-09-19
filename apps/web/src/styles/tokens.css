@@ -1,0 +1,10 @@
+:root {
+  --paper: #f7f4ee; --paper-2: #fdfcf9; --ink: #1c1b19; --muted: #6b675f; --line: #e4dfd5;
+  --accent: #c2562f; --accent-ink: #ffffff;
+  --clear: #2f8f6b; --watch: #c48a1e; --flagged: #b23a3a; --unknown: #8a857c;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius: 6px; --shadow: 0 1px 2px rgba(28, 27, 25, 0.06), 0 8px 24px rgba(28, 27, 25, 0.06);
+  --measure: 68ch;
+}

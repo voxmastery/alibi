@@ -10,7 +10,7 @@
     "typecheck": "tsc -b && tsc -p apps/api/tsconfig.json && tsc -p apps/web/tsconfig.json && tsc -p tsconfig.tests.json",
     "test:unit": "vitest run --project unit",
     "test:integration": "vitest run --project integration",
-    "test:e2e": "pnpm --filter @alibi/web run e2e",
+    "test:e2e": "pnpm --filter @alibi/api build && pnpm --filter @alibi/web build && pnpm --filter @alibi/web exec playwright test",
     "test": "pnpm run test:unit && pnpm run test:integration",
     "migrate": "pnpm --filter @alibi/db run migrate"
   },
