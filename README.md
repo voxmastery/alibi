@@ -19,3 +19,15 @@ Requires Node 22+, pnpm 10, Docker (for Postgres).
     pnpm build && pnpm test:e2e
 
 Evidence, not legal advice. Nothing in this repository asserts that a private ledger is admissible in any proceeding.
+
+## Run the product locally
+
+    pnpm install
+    pnpm build
+    NODE_ENV=production PORT=3000 node apps/api/dist/server.mjs
+
+Open http://localhost:3000. Without a `GSTINAPI_KEY` the app runs on the labelled sample register and says so on every screen.
+
+## Deploy
+
+Replit: `.replit` builds the workspace (`pnpm build`) and runs `apps/api/dist/server.mjs`, which serves the built site from `apps/web/dist` and the API under `/api`. Environment variables are set in Replit Secrets, never committed; see `.env.example` for the names.
