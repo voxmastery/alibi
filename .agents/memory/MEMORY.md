@@ -1,2 +1,0 @@
-- [WebGL verification limits](webgl-verification.md) — Preview-browser context creation may fail; distinguish browser capability from graph correctness.
-- [Publishing checks](production-startup.md) — Explicit web registration is required; publishing and preview launch from different directories.

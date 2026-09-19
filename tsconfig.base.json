@@ -1,26 +1,19 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "isolatedModules": true,
+    "target": "es2022",
     "lib": ["es2022"],
     "module": "esnext",
     "moduleResolution": "bundler",
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": false,
+    "customConditions": ["source"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": false,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": false,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": true,
-    "alwaysStrict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "target": "es2022",
-    "types": [],
-    "customConditions": ["workspace"]
+    "types": []
   }
 }
