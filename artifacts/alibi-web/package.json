@@ -1,0 +1,14 @@
+{
+  "name": "@workspace/alibi-web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "build": "node --check public/app.js",
+    "typecheck": "node --check serve.mjs && node --check public/app.js"
+  },
+  "devDependencies": {
+    "express": "^5.2.1"
+  }
+}

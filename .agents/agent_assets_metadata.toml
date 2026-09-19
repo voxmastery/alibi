@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "rO-R5G8lQJTr9J_8GsZif"
+uri = "file://screenshots/alibi-webgl-check.jpg"
+type = "image"
+title = "Alibi — WebGL verification blocked"
+description = "Actual browser capture: WebGL context creation failed, so no spheres or links rendered. Real-data integration remains gated."
+logical_id = "0a217c7b-6a9d-4f56-a0bd-90b9694d1811"
+content_hash = "sha256:f2c92ecf6d7c11247c2da3c898cd105ce9cf165ceabf0488a140f9cea2cef9bf"
+size = 23503
+mtime_ms = 1789805778543
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:ed200916-d6fd-4999-8243-1ded199236fa/0a217c7b-6a9d-4f56-a0bd-90b9694d1811/fc8c482c-5d68-4e29-b29e-0d84854da40c"
+storage_version_token = "1789805812865730"
+content_type = "image/jpeg"

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Alibi records vendor diligence evidence for Indian SME finance." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" />
+    <title>Alibi — diligence recorder</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div id="graph" aria-label="Vendor relationship graph"></div>
+      <div class="overlay">
+        <header class="topbar">
+          <section aria-label="Alibi diligence overview">
+            <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div><p class="brand-name">ALIBI</p><p class="tagline">diligence recorder / india sme finance</p></div></div>
+            <div class="counter-stack" aria-label="Network totals">
+              <div class="counter"><span id="vendors-count" class="counter-value">—</span><p class="counter-label">Vendors tracked</p></div>
+              <div class="counter"><span id="snapshots-count" class="counter-value">—</span><p class="counter-label">Snapshots sealed</p></div>
+              <div class="counter"><span id="itc-count" class="counter-value currency">₹—</span><p class="counter-label">ITC exposed (Rs) <span title="Recorded ITC associated with flagged vendors; this is not a tax denial.">[i]</span></p></div>
+            </div>
+          </section>
+          <aside class="risk-legend" aria-label="Risk band legend"><p class="legend-title">risk band</p><div class="legend-row"><span class="legend-dot clear"></span><span class="legend-label">clear</span></div><div class="legend-row"><span class="legend-dot watch"></span><span class="legend-label">watch</span></div><div class="legend-row"><span class="legend-dot flagged"></span><span class="legend-label">flagged</span></div><div class="legend-row"><span class="legend-dot unknown"></span><span class="legend-label">unknown</span></div></aside>
+        </header>
+        <aside id="status-card" class="status-card" aria-live="polite"><p id="status-title" class="eyebrow">network loading</p><p id="status-copy" class="status-copy">Retrieving uploaded relationship records.</p></aside>
+        <div id="inline-alert" class="inline-alert" role="status"><strong id="alert-title">network update delayed</strong><button id="retry" type="button">retry</button><span id="alert-copy"></span></div>
+        <div id="renderer-warning" class="inline-alert" role="status"><strong>WebGL unavailable</strong><button id="retry-renderer" type="button">retry renderer</button><span> Evidence totals and records remain available.</span></div>
+        <label class="vendor-picker" for="vendor-select"><span class="field-label">inspect vendor</span><select id="vendor-select" disabled><option>Loading network…</option></select></label>
+        <section class="scrubber-shell" aria-label="Network month selector">
+          <div class="scrubber-head"><p class="eyebrow">as of / selected snapshot</p><p id="selected-month" class="scrubber-note">2026-09</p></div>
+          <div class="timeline-controls"><button id="play" class="play" type="button" aria-label="Play monthly timeline" disabled>PLAY</button><input id="timeline" class="timeline" type="range" min="0" max="18" value="18" step="1" disabled aria-label="Select reporting month" aria-valuetext="September 2026"></div>
+          <div class="scrubber-head"><span class="scrubber-date">2025-03</span><span class="scrubber-date">2026-09</span></div>
+        </section>
+      </div>
+      <aside id="drawer" class="drawer" aria-label="Vendor diligence record" aria-hidden="true" hidden inert></aside>
+    </main>
+    <script src="//cdn.jsdelivr.net/npm/3d-force-graph@1.80.0"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
