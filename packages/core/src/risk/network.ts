@@ -1,4 +1,5 @@
-import type { EdgeAttribute, EdgeInput, VendorInput } from "./types.js";
+import type { EdgeAttribute, EdgeInput, Finding, Severity, VendorInput } from "./types.js";
+import { ATTRIBUTE_LABELS, ATTRIBUTE_ORDER, countLabel, listNames } from "./text.js";
 
 export interface Cluster {
   members: Set<string>;
@@ -109,4 +110,87 @@ export function buildNetworkIndex(
     if (cluster.attributes.size >= 2) clusterOf.set(member, cluster);
   }
   return { peers, clusterOf };
+}
+
+/** Rules A1–A6. Weights, severities and sentences are copied from docs/reference/risk.js. */
+export function networkFindings(
+  vendor: VendorInput,
+  index: NetworkIndex,
+  vendorById: Map<string, VendorInput>,
+  asOf: string,
+): Finding[] {
+  const findings: Finding[] = [];
+  const add = (rule_id: string, severity: Severity, weight: number, message: string) => {
+    findings.push({ rule_id, severity, weight, message, as_of: asOf });
+  };
+  const peersFor = (attribute: EdgeAttribute): VendorInput[] => {
+    const ids = index.peers.get(vendor.id)?.get(attribute);
+    if (!ids) return [];
+    const peers: VendorInput[] = [];
+    for (const id of [...ids].sort()) {
+      const peer = vendorById.get(id);
+      if (peer) peers.push(peer);
+    }
+    return peers;
+  };
+  const names = (peers: VendorInput[]) => listNames(peers.map((p) => p.legal_name));
+
+  const bankPeers = peersFor("bank_account");
+  if (bankPeers.length > 0) {
+    add(
+      "A1",
+      "high",
+      45,
+      `Shares bank account XXXX${String(vendor.bank_account ?? "").slice(-4)} with ${names(bankPeers)} — ${countLabel(bankPeers.length + 1)} entities, one account.`,
+    );
+  }
+
+  const panPeers = peersFor("pan");
+  const panStates = [...new Set([vendor, ...panPeers].map((v) => v.state))];
+  if (panPeers.length > 0 && panStates.length > 1) {
+    add(
+      "A2",
+      "info",
+      5,
+      `Holds ${countLabel(panPeers.length + 1)} GSTINs under one PAN across ${listNames(panStates)}. Normal for multi-state operations.`,
+    );
+  }
+
+  const addressPeers = peersFor("address").filter((p) => !(vendor.pan && p.pan && vendor.pan === p.pan));
+  if (addressPeers.length > 0) {
+    add(
+      "A3",
+      "high",
+      30,
+      `Registered at the same address as ${names(addressPeers)}. No shared PAN or group structure on record.`,
+    );
+  }
+
+  const phonePeers = peersFor("phone");
+  if (phonePeers.length > 0) {
+    add("A4-phone", "medium", 20, `Contact number shared with ${names(phonePeers)}.`);
+  }
+
+  const emailPeers = peersFor("email");
+  if (emailPeers.length > 0) {
+    add("A4-email", "medium", 20, `Email address shared with ${names(emailPeers)}.`);
+  }
+
+  const ipPeers = peersFor("filing_ip");
+  if (ipPeers.length > 0) {
+    add("A5", "high", 25, `Returns filed from the same IP address as ${names(ipPeers)}.`);
+  }
+
+  const cluster = index.clusterOf.get(vendor.id);
+  if (cluster) {
+    const labels = ATTRIBUTE_ORDER.filter((a) => cluster.attributes.has(a)).map((a) => ATTRIBUTE_LABELS[a]);
+    add(
+      "A6",
+      "high",
+      25,
+      `Part of a ${countLabel(cluster.members.size)}-entity cluster linked by ${listNames(labels)}. This structure matches known circular-trading patterns.`,
+    );
+  }
+
+  return findings;
 }
