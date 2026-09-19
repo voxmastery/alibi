@@ -10,7 +10,6 @@ export default defineConfig({
     conditions: ["source"],
     alias: {
       "@alibi/core": source("./packages/core/src/index.ts"),
-      "@alibi/db": source("./packages/db/src/index.ts"),
       "@alibi/contracts": source("./packages/contracts/src/index.ts"),
       "@alibi/sample": source("./packages/sample/src/index.ts"),
     },
