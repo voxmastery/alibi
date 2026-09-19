@@ -1,1 +1,45 @@
 /* Screen tasks (8-11) append their own rules here. Intentionally empty in the shell. */
+
+/* check */
+.check-form { max-width: 36rem; margin: 4px 0 32px; }
+.check-row { display: flex; align-items: stretch; gap: 12px; }
+.check-row .input { flex: 1 1 auto; min-width: 0; }
+.check-row .btn { flex: 0 0 auto; padding: 14px 22px; }
+.check-messages:empty { display: none; }
+.check-messages { margin-top: 10px; }
+.check-messages .field-error { margin: 0; }
+.check-samples { max-width: 36rem; }
+.check-samples .sample-list { list-style: none; margin: 0; padding: 0; }
+.check-samples .sample { padding: 16px 0 0; margin-top: 16px; border-top: 1px solid var(--line); }
+.check-samples .sample:first-child { padding-top: 0; margin-top: 4px; border-top: 0; }
+.check-samples .sample-btn { text-align: left; }
+.check-samples .sample-note { margin: 8px 0 0; color: var(--muted); font-size: 0.95rem; }
+.check-samples .sample-gstin { margin: 4px 0 0; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.08em; }
+.check-links { color: var(--muted); max-width: 36rem; }
+@media (max-width: 560px) {
+  .check-row { flex-direction: column; }
+  .check-row .btn { width: 100%; justify-content: center; }
+}
+/* end check */
+
+/* result */
+.result-head { margin-bottom: 24px; }
+.result-head .eyebrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.result-head h1 { margin-bottom: 10px; }
+.result-ident { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 0; }
+.result-ident .mono { letter-spacing: 0.08em; font-size: 1rem; }
+.verdict-card .verdict-sentence { color: var(--ink); margin-bottom: 12px; }
+.verdict-card .verdict-score { margin: 0; color: var(--muted); }
+.verdict-card .verdict-asof { margin: 4px 0 0; font-size: 0.9rem; }
+.filing-note { margin: 18px 0 0; font-size: 0.95rem; }
+.signals { list-style: none; margin: 0; padding: 0; }
+.signals .signal { padding: 12px 0; border-top: 1px solid var(--line); }
+.signals .signal:first-child { padding-top: 0; border-top: 0; }
+.signals .peers { color: var(--muted); }
+.no-signals { margin: 0; }
+.sealed-note { margin: 18px 0 0; font-size: 0.95rem; }
+.result-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.action-messages { margin-top: 16px; }
+.action-messages:empty { display: none; }
+.result-back { margin-top: 20px; }
+/* end result */
