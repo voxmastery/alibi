@@ -175,12 +175,12 @@ GET  /api/healthz
 All inputs validated with hand-written zod schemas next to the route. Errors are `{ error: { code, message, field? } }`.
 
 ### 4.8 Deployment
-One Vercel project. `apps/web` builds to static; `apps/api` is a single serverless function; `vercel.json` rewrites `/api/*` to it. Neon Postgres via the Vercel marketplace integration. Vercel Cron (daily on Hobby) calls `/api/jobs/resnapshot`. Environment: `DATABASE_URL`, `GSTINAPI_KEY` (absent → sample mode with banner), `CRON_SECRET`, `LOOKUP_DAILY_CAP`, `EMAIL_API_KEY` (R4), `SESSION_SECRET` (R6). No secrets in the repo; `.env.example` lists names only.
+One Vercel project. `apps/web` builds to static; `apps/api` is a single serverless function; `vercel.json` rewrites `/api/*` to it. Neon Postgres via the Vercel marketplace integration. Vercel Cron (daily on Hobby) calls `/api/jobs/resnapshot`. Environment: `DATABASE_URL`, `GSTINAPI_KEY` (absent → sample mode with banner), `CRON_SECRET`, `LOOKUP_DAILY_CAP`, `EMAIL_API_KEY` (R4; Resend by default, behind a one-function adapter so it can be swapped), `SESSION_SECRET` (R6). No secrets in the repo; `.env.example` lists names only.
 
 ## 5. Look and motion
 
 ### 5.1 Theme
-Warm paper `#F7F4EE`, ink `#1C1B19`, muted `#6B675F`, rule lines `#E4DFD5`, one accent terracotta `#C2562F` for actions and focus. Band colours only on findings: clear `#2F8F6B`, watch `#C48A1E`, flagged `#B23A3A`, unknown `#8A857C`. Type: a serif display face for headings, a humanist sans for body, a monospace for every GSTIN, hash, amount and date. Fonts self-hosted so exports are deterministic. Light theme only; `prefers-color-scheme` is not honoured in this version.
+Warm paper `#F7F4EE`, ink `#1C1B19`, muted `#6B675F`, rule lines `#E4DFD5`, one accent terracotta `#C2562F` for actions and focus. Band colours only on findings: clear `#2F8F6B`, watch `#C48A1E`, flagged `#B23A3A`, unknown `#8A857C`. Type: Source Serif 4 for headings, Source Sans 3 for body, JetBrains Mono for every GSTIN, hash, amount and date. All three are open-licensed and self-hosted so exports are deterministic. Light theme only; `prefers-color-scheme` is not honoured in this version.
 
 ### 5.2 Three.js chapters
 One persistent full-viewport canvas behind the DOM, one renderer, one scene graph with a chapter per route; route changes tween the camera and cross-fade chapter groups so there is never a cut. The world is paper and light: translucent register cards, thin ink lines, soft shadows, particles only where they mean something (ledger entries, months).
