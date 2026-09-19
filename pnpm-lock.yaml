@@ -25,6 +25,12 @@ importers:
 
   packages/core: {}
 
+  packages/sample:
+    dependencies:
+      '@alibi/core':
+        specifier: workspace:*
+        version: link:../core
+
 packages:
 
   '@jridgewell/resolve-uri@3.1.2':

@@ -23,9 +23,9 @@ export default defineConfig({
           name: "unit",
           include: [
             "packages/core/test/**/*.test.ts",
+            "packages/sample/test/**/*.test.ts",
             "apps/api/test/**/*.test.ts",
             "apps/web/test/**/*.test.ts",
-            "packages/sample/test/**/*.test.ts",
           ],
         },
       },
