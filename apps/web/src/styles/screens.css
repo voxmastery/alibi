@@ -1,1 +1,79 @@
 /* Screen tasks (8-11) append their own rules here. Intentionally empty in the shell. */
+
+/* vendors */
+.vendors-summary { font-size: 1.05rem; }
+.vendors-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 20px;
+  padding: 16px 0 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+.vendors-toolbar .btn { align-self: center; }
+.file-field, .date-field { display: flex; flex-direction: column; gap: 6px; }
+.file-field > span, .date-field > span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.file-field input[type="file"] {
+  font: 0.9rem var(--sans);
+  color: var(--muted);
+  max-width: 260px;
+}
+.date-field { margin-left: auto; }
+.date-input {
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  font: 0.95rem var(--mono);
+  color: var(--ink);
+}
+.date-input:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn-small { padding: 6px 12px; font-size: 0.85rem; }
+.btn-secondary.is-on { border-color: var(--clear); color: var(--clear); }
+.vendors-notice:empty, .vendor-notice:empty { display: none; }
+.vendors-notice, .vendor-notice { margin-bottom: 16px; }
+.import-panel .import-count { margin-bottom: 12px; }
+.import-errors td { color: var(--ink); }
+.vendors-table td.num, .vendors-table th:nth-child(3), .vendors-table th:nth-child(6) { text-align: right; }
+.vendors-table .vendor-cell { min-width: 220px; }
+.vendors-table .vendor-name a { font-weight: 600; text-decoration: none; }
+.vendors-table .vendor-name a:hover { text-decoration: underline; }
+.vendors-table .vendor-gstin { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.04em; }
+.vendors-table tbody tr:hover { background: rgba(194, 86, 47, 0.04); }
+.status-word { font-weight: 600; }
+.status-current { color: var(--clear); }
+.status-gap { color: var(--flagged); }
+.status-unknown { color: var(--muted); font-weight: 400; }
+/* end vendors */
+
+/* vendor */
+.vendor-head { margin-bottom: 24px; }
+.vendor-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.vendor-sub .gstin { font-size: 1rem; letter-spacing: 0.06em; }
+.vendor-sub .date-field { margin-left: auto; }
+.verdict-line { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 12px; }
+.verdict-line .score { color: var(--muted); }
+.timeline-table td, .transactions-table td { white-space: nowrap; }
+.timeline-table .num, .transactions-table .num { text-align: right; }
+.timeline-table tr.changed { background: rgba(194, 86, 47, 0.06); }
+.timeline-table tr.changed td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.timeline-table .failed { color: var(--flagged); font-weight: 600; }
+.timeline-table .hash, .transactions-table .hash { color: var(--muted); }
+.chain-line { font-size: 1.05rem; margin-bottom: 16px; }
+.chain-line.ok { color: var(--clear); font-weight: 600; }
+.chain-line.fail { color: var(--flagged); font-weight: 700; }
+.chain-line.none { color: var(--muted); }
+.chain-actions, .actions-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.actions-card .small { font-size: 0.9rem; margin: 16px 0 0; }
+@media (max-width: 720px) {
+  .date-field, .vendor-sub .date-field { margin-left: 0; }
+  .timeline-table td, .transactions-table td { white-space: normal; }
+}
+/* end vendor */
