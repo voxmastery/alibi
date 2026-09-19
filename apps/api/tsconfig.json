@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"],
+    // The workspace packages are consumed through their "source" export condition, so their
+    // TypeScript sources are type-checked inside this program. packages/core reaches for
+    // BufferSource (Web Crypto), which lives in lib.dom, exactly as its own tsconfig does.
+    "lib": ["es2022", "dom"]
+  },
+  "include": ["src"]
+}
