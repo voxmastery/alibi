@@ -7,7 +7,7 @@ COREPACK_ENABLE_DOWNLOAD_PROMPT = "0"
 
 [deployment]
 deploymentTarget = "autoscale"
-build = ["sh", "-c", "corepack enable && pnpm install --frozen-lockfile && pnpm build"]
+build = ["sh", "-c", "corepack pnpm@10.26.1 install --frozen-lockfile && corepack pnpm@10.26.1 build"]
 run = ["node", "apps/api/dist/server.mjs"]
 
 [[ports]]
