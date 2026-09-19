@@ -1,3 +1,5 @@
+import type { ZodType } from "zod";
+
 export class ApiError extends Error {
   constructor(
     public readonly status: number,
@@ -23,4 +25,16 @@ export class ApiError extends Error {
 
 export function errorBody(error: ApiError): { error: { code: string; message: string; field?: string } } {
   return { error: { code: error.code, message: error.message, ...(error.field ? { field: error.field } : {}) } };
+}
+
+/**
+ * Validates a request body or query against a schema and names the first thing that is wrong.
+ * Every route validates before a service sees anything.
+ */
+export function parseOrThrow<T>(schema: ZodType<T>, value: unknown): T {
+  const result = schema.safeParse(value);
+  if (result.success) return result.data;
+  const issue = result.error.issues[0];
+  const field = issue && issue.path.length > 0 ? issue.path.map(String).join(".") : undefined;
+  throw new ApiError(400, "invalid_request", issue?.message ?? "The request could not be read.", field);
 }
