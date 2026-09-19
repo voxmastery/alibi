@@ -11,6 +11,7 @@ export default defineConfig({
     alias: {
       "@alibi/core": source("./packages/core/src/index.ts"),
       "@alibi/db": source("./packages/db/src/index.ts"),
+      "@alibi/sample": source("./packages/sample/src/index.ts"),
     },
   },
   test: {
@@ -21,6 +22,7 @@ export default defineConfig({
           name: "unit",
           include: [
             "packages/core/test/**/*.test.ts",
+            "packages/sample/test/**/*.test.ts",
             "apps/api/test/**/*.test.ts",
             "apps/web/test/**/*.test.ts",
           ],

@@ -23,6 +23,12 @@ importers:
 
   packages/core: {}
 
+  packages/sample:
+    dependencies:
+      '@alibi/core':
+        specifier: workspace:*
+        version: link:../core
+
 packages:
 
   '@esbuild/aix-ppc64@0.25.12':
